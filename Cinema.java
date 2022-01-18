@@ -1,21 +1,41 @@
+import java.util.Scanner;
+
 public class Cinema {
 
     public static void main(String[] args) {
         
-        int rows = 7;
-        int seatsPerRow = 8;
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("Enter the number of rows:");
+        int rows = scanner.nextInt();
 
-        // Imprime o cabeçalho
-        System.out.println("Cinema:\n  1 2 3 4 5 6 7 8");
+        System.out.println("Enter the number of seats in each row:");
+        int seatsPerRow = scanner.nextInt();
 
-        for(int i = 1; i <= rows; i++) {
-            System.out.print(i);
+        int profit = calculateProfit(rows, seatsPerRow);
 
-            for(int j = 0; j < seatsPerRow; j++) {
-                System.out.print(" S");
-            }
+        System.out.println("Total income:\n$" + profit);
+    }
 
-            System.out.println();
+    public static int calculateProfit(int rows, int seatsPerRow) {        
+
+        int sizeOfSmallerRoom = 60;
+        int numberOfSeats = rows * seatsPerRow;
+        int profit = 0;
+        int frontHalfPrice = 10;
+        int backHalfPrice = 8;
+
+        if(numberOfSeats <= sizeOfSmallerRoom) {
+            profit = numberOfSeats * frontHalfPrice;
+        } else {
+            int frontHalf = rows / 2;
+            int backHalf = (rows % 2 == 0) ? rows / 2 : rows / 2 + 1;
+
+            profit += frontHalf * seatsPerRow * frontHalfPrice;
+            profit += backHalf * seatsPerRow * backHalfPrice;
         }
+
+        return profit;
+
     }
 }
