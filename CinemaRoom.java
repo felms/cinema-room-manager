@@ -23,7 +23,7 @@ public class CinemaRoom {
 
     public void pickSeat() {
 
-        System.out.println("Enter a row number:");
+        System.out.println("\nEnter a row number:");
         int row = this.scanner.nextInt();
 
         System.out.println("Enter a seat number in that row:");
@@ -33,9 +33,7 @@ public class CinemaRoom {
 
         int price = ticketPrice(row, seatNumber);
 
-        System.out.println("\n\nTicket price: $" + price);
-
-        printSeats();
+        System.out.println("Ticket price: $" + price);
 
     }    
 
@@ -82,7 +80,5 @@ public class CinemaRoom {
             }
             System.out.println();
         }
-
-        System.out.println("\n");
     }
 }
