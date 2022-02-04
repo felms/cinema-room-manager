@@ -15,7 +15,7 @@ public class Cinema {
         CinemaRoom cinemaRoom = new CinemaRoom(rows, seatsPerRow);
         int option = 0;
         do {
-            System.out.println("\n1. Show the seats\n2. Buy a ticket\n0. Exit");
+            System.out.println("\n1. Show the seats\n2. Buy a ticket\n3. Statistics\n0. Exit");
             option = scanner.nextInt();
 
             switch (option) {
@@ -26,6 +26,9 @@ public class Cinema {
                     break;
                 case 2:
                     cinemaRoom.pickSeat();
+                    break;
+                case 3:
+                    cinemaRoom.statistics();
                     break;
             }
 
